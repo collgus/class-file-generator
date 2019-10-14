@@ -1,0 +1,40 @@
+{
+    "name": "collgus/class-file-generator",
+    "description": "PHP class file generations",
+    "type": "library",
+    "autoload": {
+        "classmap": ["generated-classes/"],
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Collgus\\GF\\": "src/",
+            "Test\\": "tests/"
+        }
+    },
+    "repositories": {
+        "exceptions": {
+            "type": "path",
+            "url": "../exceptions",
+            "options": {
+              "symlink": true
+            }
+          }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4",
+        "phpstan/phpstan": "^0.11.16"
+    },
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Lukas Grajewsky",
+            "email": "grajewski.lukasz@wp.pl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/filesystem": "^4.3",
+        "collgus/exceptions": "@dev"
+    }
+}
