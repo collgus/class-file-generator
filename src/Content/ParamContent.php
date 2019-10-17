@@ -16,10 +16,10 @@ final class ParamContent extends AbstractContent {
 
     protected $template = '%s $%s';
 
-    public function __construct(string $type, string $name) {
+    public function __construct(?string $type, string $name) {
         parent::__construct();
         
-        $this->paramType = $type;
+        $this->paramType = $type ?? "";
         $this->name = $name;
     }
     public function getBinds(): array {

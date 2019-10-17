@@ -32,22 +32,24 @@ final class MethodWithPropertiesContent extends AbstractContent {
     protected $template = "%spublic function %s(%s)%s\n{%s}";
 
 
-    protected static $info = "Auto-genereted File, dont modify.";
+    protected static $info = "Auto-genereted File.";
 
     /** 
      * @param string $name
      * @param Array<Content> $params
      * @param Content $body
+     * @param Array<string> $properties
      * @param string|null $returnType
      * 
      * @throws InvalidArgsException
      */
-    public function __construct(string $name, array $params, Content $body, ?string $returnType = null) {
+    public function __construct(string $name, array $params, Content $body, ?array $properties, ?string $returnType = null) {
         parent::__construct();
         
         if ($this->validateParams($params)) {
             $this->name = $name;
             $this->body = $body;
+            $this->properties = $properties;
             $this->params = $params;
             $this->returnType = $returnType;
         } else {
@@ -58,7 +60,12 @@ final class MethodWithPropertiesContent extends AbstractContent {
 
     public function getBinds(): array {
         return [
-            $this->name
+            join('', $this->properties),
+            $this->name,
+            join(',', $this->params),
+            $this->obtainReturnType($this->returnType),
+            strval($this->body)
+            
         ];
     }
     private function obtainReturnType(?string $type): string {
