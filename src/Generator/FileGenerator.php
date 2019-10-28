@@ -1,5 +1,5 @@
 <?php 
-namespace Collgus\GF\ClassGenerator;
+namespace Collgus\GF\Generator;
 
 use Collgus\GF\ClassGenerator;
 use Collgus\GF\Content;
@@ -10,6 +10,7 @@ final class FileClassGenerator implements ClassGenerator {
     public function generate(Content $content): void {
         try {
             $filesystem = new Filesystem();
+            echo $content->toString();
         }
         catch (IOExceptionInterface $exception) {
         }

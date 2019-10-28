@@ -20,7 +20,7 @@ final class ClassContent extends AbstractContent {
     /** 
      * @var string $template
      */
-    protected $template = "/** %s */class %s implements %s {%s%s}";
+    protected $template = "/** %s */class %s implements %s {%s}";
 
 
     protected static $info = "Auto-genereted File, dont modify.";
@@ -46,6 +46,7 @@ final class ClassContent extends AbstractContent {
             join("\n\t", array_map(function(Content $content) {
                 return $content->toString();
             }, $this->methods)),
+
         ];
     }
 }

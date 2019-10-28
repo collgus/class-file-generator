@@ -19,7 +19,7 @@ abstract class Content implements ContentInterface {
         return $this->template;
     }
     public final function toString(): string {
-        return sprintf($this->template, ...$this->args);
+        return sprintf($this->template, ...$this->getBinds());
     }
     public function bind(array $args = []): void {
         $this->args = $args;

@@ -1,5 +1,5 @@
 <?php 
-namespace Collgus\Content;
+namespace Collgus\GF\Content;
 
 use Collgus\GF\Content\Content;
 
