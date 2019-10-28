@@ -20,15 +20,13 @@ class ClearService implements ExecutableService {
         $this->finder = $finder;
     }
     public function exec(): void {
-        $files = $this->finder->files()->in(collgus_fg_path());
+        $files = $this->finder->files()->in(collgus_fg_path(["generated-classes"]));
         /** 
          * @var SplFileInfo $file
          */
         if ($files->hasResults()) {
-            echo "test-";
             foreach ($files as $file) {
-                echo "file-" . $file->getFilename() . "--";
-                $this->filesystem->remove($file->getFilename());
+                $this->filesystem->remove(collgus_fg_path(["generated-classes", $file->getFilename()]));
             }
         }
     }

@@ -6,8 +6,12 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 if (!function_exists('collgus_fg_path')) {
-    function collgus_fg_path(): string {
-        return __DIR__;
+    function collgus_fg_path(array $paths = null): string {
+        $resultPath = __DIR__;
+        if (is_array($paths)) {
+            $resultPath = join(DIRECTORY_SEPARATOR, array_merge([$resultPath], $paths));
+        }
+        return $resultPath;
     }
 }
 
