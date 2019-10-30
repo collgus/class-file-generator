@@ -5,5 +5,5 @@ use Collgus\GF\ClassGenerator;
 
 interface Settings {
     public function getGeneratedClassPath(): string;
-    public function getClassGenerator(): ClassGenerator;
+    public function getDefaultClassGenerator(): ClassGenerator;
 }

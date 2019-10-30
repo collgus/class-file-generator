@@ -9,7 +9,7 @@ class Settings implements CollgusSettings {
     public function getGeneratedClassPath(): string {
         return collgus_fg_path(["generated-classes"]);
     }
-    public function getClassGenerator(): Generator {
+    public function getDefaultClassGenerator(): Generator {
         return new FileGenerator();
     }
 }
