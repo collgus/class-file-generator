@@ -1,11 +1,12 @@
 <?php
 namespace Collgus\GF\Generator;
 
-use Collgus\GF\ClassGenerator;
-use Collgus\GF\Content;
 use Throwable;
+use Collgus\GF\Content;
+use Collgus\GF\Settings;
+use Collgus\GF\Generator;
 
-final class EvalGenerator implements ClassGenerator {
+final class EvalGenerator implements Generator {
     public function generate(Settings $settings, Content $content): void {
         try {
             eval($content->toString());
