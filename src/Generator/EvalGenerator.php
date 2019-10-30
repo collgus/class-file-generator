@@ -6,7 +6,7 @@ use Collgus\GF\Content;
 use Throwable;
 
 final class EvalGenerator implements ClassGenerator {
-    public function generate(Content $content): void {
+    public function generate(Settings $settings, Content $content): void {
         try {
             eval($content->toString());
         } catch (Throwable $throwable) {
